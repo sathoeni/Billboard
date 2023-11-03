@@ -43,19 +43,29 @@ public struct BillboardBannerView : View {
                             .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
                     }
                     VStack(alignment: .leading, spacing: 4) {
-                        
-                        BillboardAdInfoLabel(advert: advert)
-                        
+                                                
                         VStack(alignment: .leading) {
                             Text(advert.title)
                                 .font(.compatibleSystem(.footnote, design: .rounded, weight: .bold))
                                 .foregroundColor(advert.text)
                                 .lineLimit(1)
                                 .minimumScaleFactor(0.75)
-                            Text(advert.name)
-                                .font(.compatibleSystem(.caption2, design: .rounded, weight: .medium).smallCaps())
-                                .foregroundColor(advert.tint)
-                                .opacity(0.8)
+                            Text(advert.description)
+                                .font(.compatibleSystem(.caption, design: .rounded, weight: .medium))
+                                .foregroundColor(advert.text)
+                                .minimumScaleFactor(0.75)
+                            
+                            HStack {
+                                BillboardAdInfoLabel(advert: advert)
+
+                                Text(advert.name)
+                                    .font(.compatibleSystem(.caption, design: .rounded, weight: .medium).smallCaps())
+                                    .foregroundColor(advert.tint)
+                                    .opacity(0.8)
+                                
+                                Spacer()
+                                
+                            }
                         }
                     }
                 }
