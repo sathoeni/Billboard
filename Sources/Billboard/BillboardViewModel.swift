@@ -23,6 +23,9 @@ public final class BillboardViewModel : ObservableObject {
         config.multipathServiceType = .handover
         config.waitsForConnectivity = true
         config.timeoutIntervalForRequest = 30
+        #if DEBUG
+        config.urlCache = nil
+        #endif
         return config
     }
     
